@@ -1,33 +1,26 @@
-import { pizzaData } from "../data/data.js"
+/* eslint-disable react/prop-types */
 
 
-export const Pizza = () => {
+
+export const Pizza = ({ name, ingredients, photoName, price, soldOut }) => {
+
+
+
+
     return (
-        <>
-            <img src="pizzas/margherita.jpg" alt="funghi" />
-            {pizzaData.map((pizza, index) => {
-                return (
+        <li className={`pizza ${soldOut ? "sold-out" : ""}  `}>
+
+            <img src={photoName} alt={name} />
+            <div>
 
 
-
-                    <div key={index}>
-
-                        <h1> {pizza.name} </h1>
-
-                    </div>
-
-                )
+                <h3> {name} </h3>
+                <p>{ingredients}</p>
+                {!soldOut ? <span> {price}$  </span> : <span> Sold Out </span>}
+            </div>
 
 
-
-
-            })}
-
-
-
-
-
-        </>
+        </li>
 
     )
 }
